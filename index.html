@@ -2,10 +2,111 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My Personal Site</title>
+  <title>Benjamin Corter</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Add your HTML content here -->
+  <!-- Navigation Bar: Links to each section -->
+  <nav class="navbar">
+    <!-- Each link goes to a section below -->
+    <a href="#hero">Home</a>
+    <a href="#bio">About Me</a>
+    <a href="#coursework">Coursework</a>
+    <a href="#projects">Projects</a>
+  </nav>
+
+  <!-- Hero Section: This is the main introduction area -->
+  <section id="hero" class="hero">
+    <!-- Add an overlay for readability -->
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 style="color: #ffffff;">
+        Benjamin Corter
+      </h1>
+    </div>
+  </section>
+
+  <!-- About Me Section: Info from your resume -->
+  <section id="bio" class="bio">
+    <div class="section-content">
+      <h2>About Me</h2>
+      <!-- Container for text and image side by side -->
+      <div class="about-container">
+        <!-- Text content on the left -->
+        <div class="about-text">
+          <!-- Name and contact info -->
+          <p><strong>Benjamin Corter</strong></p>
+          <p>Chapel Hill, NC 27514 / Charlotte, NC 28037</p>
+          <p>Email: <a href="mailto:bjcorter@ad.unc.edu">bjcorter@ad.unc.edu</a></p>
+          <p>GitHub: <a href="https://github.com/bjcorter" target="_blank">github.com/bjcorter</a></p>
+          <p>Linkedin: <a href="https://www.linkedin.com/in/benjamin-corter-8a5959327/" target="_blank">linkedin.com/in/benjamin-corter</a></p>
+          <!-- Education details -->
+          <h3>Education</h3>
+          <p>
+            <strong>University of North Carolina at Chapel Hill</strong><br>
+            Bachelor of Arts in Computer Science<br>
+            Expected Graduation: May 2026<br>
+            GPA: 3.70
+          </p>
+          <!-- Skills and interests -->
+          <h3>Skills &amp; Interests</h3>
+          <ul>
+            <li><strong>Languages:</strong> Python, Java, C, JavaScript, HTML, CSS</li>
+            <li><strong>Technologies:</strong> FastAPI, Docker, GitHub, Angular</li>
+            <li><strong>Concepts:</strong> Object-Oriented Programming, Data Structures, Algorithms, System Fundamentals, Web Protocols, Software Engineering, AI and Machine Learning</li>
+            <li><strong>Strengths:</strong> Team collaboration, problem solving, creativity, strong work ethic</li>
+            <li><strong>Career Interests:</strong> Software Engineering, Web Development, Artificial Intelligence, Game Development</li>
+          </ul>
+        </div>
+        <!-- Both images stacked vertically on the right -->
+        <div class="about-images">
+          <img src="img/IMG_1968.jpeg" alt="Benjamin Corter" class="about-img">
+          <img src="img/37e19917473044911bf02b2b89da70ba.jpg" alt="Benjamin Corter 2" class="about-img about-img-below">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Coursework Section: List your courses -->
+  <section id="coursework" class="coursework">
+    <div class="section-content">
+      <h2>Coursework</h2>
+      <ul>
+        <li>Intro to Programming</li>
+        <li>Discrete Structures</li>
+        <li>Data Structures &amp; Analysis</li>
+        <li>System Fundamentals</li>
+        <li>Computer Architecture</li>
+        <li>Software Development</li>
+        <li>Algorithms and Analysis</li>
+        <li><em>Currently enrolled:</em> Intro to Machine Learning and Artificial Intelligence</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Projects Section: Info from your resume -->
+  <section id="projects" class="projects">
+    <div class="section-content">
+      <h2>Projects</h2>
+      <ul>
+        <li>
+          <strong>Better Office Hour Tickets with OpenAI</strong>
+          <!-- Add GitHub project link for students to see -->
+          <a href="https://github.com/bjcorter/unc-csxl-ai-office-hours/blob/stage/docs/implementation_documentation.md" target="_blank">
+            - Click here to see a more indepth look at the project
+          </a>
+          <br>
+          Team Project for UNC CSXL Website | Spring 2025
+          <ul>
+            <li>Developed a multi-featured AI ticket enhancement system using OpenAI, FastAPI, Angular, JavaScript, Python, and CSS.</li>
+            <li><strong>Ticket Review:</strong> Built a validator that reviews and rejects low-effort office hour tickets, giving feedback via OpenAI. Rejections are logged and analyzed in a custom database.</li>
+            <li><strong>AI Suggestions for TAs:</strong> Created contextual AI suggestions for TAs, offering helpful first steps for troubleshooting.</li>
+            <li><strong>Flag System:</strong> Built a frequency-based AI flagging system to highlight common student issues using prior ticket comparison and NLP prompts.</li>
+            <li>Worked on OpenAI service integration, model/entity design, backend services, frontend HTML/TypeScript logic, UI components, and database logic in PostgreSQL.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </section>
 </body>
 </html>

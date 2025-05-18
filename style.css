@@ -1,1 +1,312 @@
 /* Add you CSS here */
+
+/* These lines let us animate custom CSS variables for the background */
+
+/*background by Temani Afif https://prismic.io/blog/css-background-effects*/
+
+@property --a {
+  syntax: '<angle>';
+  inherits: true;
+  initial-value: 0deg;
+}
+@property --p {
+  syntax: '<percentage>';
+  inherits: true;
+  initial-value: 0%;
+}
+@property --c1 {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #000;
+}
+@property --c2 {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #000;
+}
+
+/* This sets the animated background for the whole page */
+html {
+  --s: 80px; /* Size of the pattern squares */
+  --_g: #0000, var(--c1) 2deg calc(var(--a) - 2deg), #0000 var(--a);
+  background:
+    conic-gradient(from calc(-45deg  - var(--a)/2) at top    var(--p) left  var(--p), var(--_g)),
+    conic-gradient(from calc(-45deg  - var(--a)/2) at top    var(--p) left  var(--p), var(--_g)),
+    conic-gradient(from calc( 45deg  - var(--a)/2) at top    var(--p) right var(--p), var(--_g)),
+    conic-gradient(from calc( 45deg  - var(--a)/2) at top    var(--p) right var(--p), var(--_g)),
+    conic-gradient(from calc(-135deg - var(--a)/2) at bottom var(--p) left  var(--p), var(--_g)),
+    conic-gradient(from calc(-135deg - var(--a)/2) at bottom var(--p) left  var(--p), var(--_g)),
+    conic-gradient(from calc( 135deg - var(--a)/2) at bottom var(--p) right var(--p), var(--_g)),
+    conic-gradient(from calc( 135deg - var(--a)/2) at bottom var(--p) right var(--p), var(--_g)),
+    var(--c2);
+  background-size: calc(2*var(--s)) calc(2*var(--s));
+  animation: m 2s infinite alternate linear;
+}
+
+/* This animates the background colors and angles */
+@keyframes m {
+  /* Animation steps for background colors and angles */
+  0%, 15% {
+    --a: 135deg;
+    --p: 20%;
+    --c1: #7BAFD4;   /* Carolina Blue */
+    --c2: #13294B;   /* UNC Navy */
+    background-position: 0 0, var(--s) var(--s);
+  }
+  45%, 50% {
+    --a: 90deg;
+    --p: 25%;
+    --c1: #7BAFD4;   /* Carolina Blue */
+    --c2: #13294B;   /* UNC Navy */
+    background-position: 0 0, var(--s) var(--s);
+  }
+  50.01%, 55% {
+    --a: 90deg;
+    --p: 25%;
+    --c2: #7BAFD4;   /* Carolina Blue */
+    --c1: #13294B;   /* UNC Navy */
+    background-position: var(--s) 0, 0 var(--s);
+  }
+  85%, 100% {
+    --a: 135deg;
+    --p: 20%;
+    --c2: #7BAFD4;   /* Carolina Blue */
+    --c1: #13294B;   /* UNC Navy */
+    background-position: var(--s) 0, 0 var(--s);
+  }
+}
+
+/* Set a clean, modern font for the whole page */
+body {
+  font-family: Arial, sans-serif;
+  color: #13294B; /* UNC Navy for text */
+  margin: 0;
+  padding: 0;
+  font-size: 1.15em; /* Make all text a bit larger */
+  line-height: 1.6;  /* Improve readability */
+}
+
+/* Make only the hero section take up the full width of the page */
+.hero {
+  /* Set the banner image as the background */
+  background-image: url('img/banner.jpg'); /* Make sure the file is named banner.jpg */
+  background-size: cover;    /* Cover the whole area */
+  background-position: calc(50% - 30px) bottom; /* Move image 30px to the left */
+  position: relative;        /* Needed for overlay positioning */
+  background-color: rgba(123, 175, 212); /* Fallback color */
+  padding: 0;
+  text-align: center;
+  border-radius: 0;
+  box-shadow: 0 2px 12px rgba(19, 41, 75, 0.18); /* UNC Navy shadow */
+  width: 100%; /* Full width */
+  margin: 0 0 30px 0; /* No space above, space below */
+  min-height: 400px; /* Increased height to show more of the image */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Overlay to make text readable on the hero image */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(19, 41, 75, 0.55); /* UNC Navy, semi-transparent */
+  z-index: 1; /* Place overlay above background but below text */
+  pointer-events: none; /* Let clicks pass through */
+}
+
+/* This container centers the hero text */
+.hero-content {
+  position: relative;
+  z-index: 2; /* Above the overlay */
+  max-width: 1008px; /* Increased width for more space */
+  margin: 0 auto;
+  padding: 40px;
+  text-align: center;
+}
+
+/* Add a box behind the main heading in the hero section */
+.hero-content h1 {
+  background: #7BAFD4; /* UNC light blue */
+  padding: 20px 40px;
+  border-radius: 10px;
+  display: inline-block;
+  color: #13294B; /* UNC Navy for the text */
+  margin-bottom: 10px;
+  box-shadow: 0 2px 8px rgba(19, 41, 75, 0.18);
+  /* Use background opacity instead of opacity for the box */
+  /* Make the background color semi-transparent but keep text solid */
+  background: rgba(123, 175, 212, 0.7); /* UNC light blue, mostly opaque */
+}
+
+/* Make hero text a light UNC blue for readability */
+.hero-content h1,
+.hero-content p {
+  color: #7BAFD4; /* Light UNC blue */
+}
+
+/* Make the other sections look like cards in the center */
+section:not(.hero) {
+  max-width: 1008px; /* Increased width for more space */
+  margin: 30px auto; /* Center the card horizontally */
+  padding: 20px; /* Space inside the card */
+  background-color: #7BAFD4; /* Carolina Blue, solid */
+  border-radius: 8px; /* Rounded corners for card effect */
+  box-shadow: 0 2px 12px rgba(19, 41, 75, 0.18); /* UNC Navy shadow */
+  width: auto; /* Do not stretch full width */
+}
+
+/* Make each section take up the full width of the page */
+section {
+  width: 100%; /* Section stretches across the page */
+  padding: 0;  /* Remove inner padding from section */
+  background-color: #7BAFD4; /* Carolina Blue, solid */
+  border-radius: 0; /* Remove rounded corners for full-width look */
+  box-shadow: 0 2px 12px rgba(19, 41, 75, 0.18); /* UNC Navy shadow */
+  margin: 30px 0; /* Space above and below each section */
+}
+
+/* This container centers the text and limits its width */
+.section-content {
+  max-width: 1008px; /* Increased width for more space */
+  margin: 0 auto;   /* Center the content horizontally */
+  padding: 20px;    /* Add space inside the content */
+}
+
+/* Style the main heading in the hero section */
+.hero h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+  color: #4B9CD3; /* Carolina Blue (darker) */
+}
+
+/* Make section headings larger for readability */
+section h2, section h3 {
+  font-size: 1.35em;
+}
+
+/* Make section headings much larger for beginners to see clearly */
+section h2 {
+  color: #13294B; /* UNC Navy */
+  margin-top: 0;
+  font-size: 2.3em; /* Significantly larger */
+}
+
+/* Style lists for coursework and projects */
+ul {
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 8px;
+  font-size: 1.08em;
+}
+
+/* Style for the navigation bar at the top */
+.navbar {
+  background-color: #13294B; /* UNC Navy */
+  padding: 18px 0; /* Increased padding to make navbar taller */
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(19, 41, 75, 0.10); /* UNC Navy shadow */
+  position: relative;
+  z-index: 1;
+}
+
+/* Style the links inside the navbar */
+.navbar a {
+  color: #fff; /* White text for navbar links */
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+  font-size: 1em;
+  transition: color 0.2s;
+}
+
+/* Add a simple hover effect */
+.navbar a:hover {
+  color: rgba(123, 175, 212, 0.98); /* UNC Navy on hover */
+  text-decoration: underline;
+}
+
+/* Optional: Slightly lighter background for the hero section */
+.hero {
+  background-color: rgba(123, 175, 212); /* Carolina Blue, almost solid */
+  padding: 0; /* Remove padding from hero section */
+  text-align: center;
+  border-radius: 0; /* Remove rounded corners for full-width look */
+  box-shadow: 0 2px 12px rgba(19, 41, 75, 0.18); /* UNC Navy shadow */
+  /* Removed blur effect */
+}
+
+/* This container centers the hero text */
+.hero-content {
+  max-width: 1008px; /* Increased width for more space */
+  margin: 0 auto;
+  padding: 40px;
+  text-align: center;
+}
+
+/* Optional: Make links in sections stand out */
+section a {
+  color: #4B9CD3; /* Carolina Blue (darker) */
+  text-decoration: underline;
+}
+
+/* Make links in the About Me section (bio) UNC Navy */
+.bio a {
+  color: #13294B; /* UNC Navy */
+  text-decoration: underline;
+}
+
+/* Container for About Me text and image side by side */
+.about-container {
+  overflow: auto; /* Clear floats after the container */
+  position: relative; /* For future positioning if needed */
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Text stays on the left, no extra margin needed now */
+.about-text {
+  margin-right: 0; /* Remove right margin so text uses full width */
+  flex: 1;
+}
+
+/* The main image style (top image) */
+.about-img {
+  /* Remove float so images stack vertically */
+  display: block;
+  width: 270px;
+  height: 270px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-left: 24px;
+  margin-bottom: 12px;
+  margin-top: 20px;
+  margin-right: 20px;
+  box-shadow: 0 2px 8px rgba(19, 41, 75, 0.12);
+  border: 4px solid #13294B; /* UNC Navy border */
+  /* Remove float and clear for vertical stacking */
+}
+
+/* The second image below the first one */
+.about-img-below {
+  margin-top: 0; /* No extra space above */
+}
+
+/* Put both images in a column on the right */
+.about-images {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Align images to the right edge */
+}
+
+/* Make the special project link UNC Navy */
+.projects a {
+  color: #13294B; /* UNC Navy */
+  text-decoration: underline;
+}
+
