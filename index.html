@@ -17,30 +17,31 @@
 
   <!-- Hero Section: This is the main introduction area -->
   <section id="hero" class="hero">
-    <!-- Add an overlay for readability -->
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <h1 style="color: #ffffff;">
-        Benjamin Corter
+      <!-- Added a waving hand emoji for a friendly touch -->
+      <h1>
+        Benjamin Corter <span class="wave-emoji">👋</span>
       </h1>
+      <div class="flare-underline"></div>
+      <p>Passionate Problem Solver and Software Developer</p>
+      <p>Welcome to my Portfolio!</p>
+      <img src="img/IMG_1968.jpeg" alt="Benjamin Corter" class="hero-photo" style="margin-top: 18px;">
+    </div>
+    <!-- Animated scroll-down arrow to encourage scrolling -->
+    <div class="arrow-bounce-container">
+      <a href="#bio" class="scroll-down-arrow" title="Scroll for more" tabindex="0"></a>
     </div>
   </section>
 
-  <!-- About Me Section: Info from your resume -->
+  <!-- About Me Section -->
   <section id="bio" class="bio">
     <div class="section-content">
-      <h2>About Me</h2>
-      <!-- Container for text and image side by side -->
+      <h2>👤About Me</h2>
       <div class="about-container">
-        <!-- Text content on the left -->
         <div class="about-text">
-          <!-- Name and contact info -->
-          <p><strong>Benjamin Corter</strong></p>
-          <p>Chapel Hill, NC 27514 / Charlotte, NC 28037</p>
-          <p>Email: bjcorter@ad.unc.edu</p>
-          <p>GitHub: <a href="https://github.com/bjcorter" target="_blank">github.com/bjcorter</a></p>
-          <p>Linkedin: <a href="https://www.linkedin.com/in/benjamin-corter-8a5959327/" target="_blank">linkedin.com/in/benjamin-corter</a></p>
-          <!-- Education details -->
+          <p>
+            Hello! I am currently a senior at the University of North Carolina at Chapel Hill, majoring in Computer Science. I have a passion for software development and problem-solving, and this site here is to showcase the work that I have done. I hope to continue to add to this site as I grow, learn, and achieve more.
           <h3>Education</h3>
           <p>
             <strong>University of North Carolina at Chapel Hill</strong><br>
@@ -48,7 +49,6 @@
             Expected Graduation: May 2026<br>
             GPA: 3.70
           </p>
-          <!-- Skills and interests -->
           <h3>Skills &amp; Interests</h3>
           <ul>
             <li><strong>Languages:</strong> Python, Java, C, JavaScript, HTML, CSS</li>
@@ -57,20 +57,31 @@
             <li><strong>Strengths:</strong> Team collaboration, problem solving, creativity, strong work ethic</li>
             <li><strong>Career Interests:</strong> Software Engineering, Web Development, Artificial Intelligence, Game Development</li>
           </ul>
+          <!-- Fun Fact box for personality -->
+          <div class="fun-fact">
+            <strong>🌟 On a more personal note...</strong>
+            <ul>
+              <li>I'm obsessed with golf and I try and to hit at least a few balls everyday</li>
+              <li>I'm a beginner chess player who is currently destroying my friends and family who never play</li>
+              <li>I love diving deep into a great movie or video game, and will talk about it way too much</li>
+            </ul>
+          </div>
+          <p>Here are my links:
+            <ul>
+              <li><a href="https://github.com/bjcorter" target="_blank">GitHub</a></li>
+              <li><a href="https://www.linkedin.com/in/benjamin-corter-8a5959327/" target="_blank">Linkedin</a></li>
+            </ul>
+          </p>
         </div>
-        <!-- Both images stacked vertically on the right -->
-        <div class="about-images">
-          <img src="img/IMG_1968.jpeg" alt="Benjamin Corter" class="about-img">
-          <img src="img/37e19917473044911bf02b2b89da70ba.jpg" alt="Benjamin Corter 2" class="about-img about-img-below">
-        </div>
+        
       </div>
     </div>
   </section>
 
-  <!-- Coursework Section: List your courses -->
+  <!-- Coursework Section -->
   <section id="coursework" class="coursework">
     <div class="section-content">
-      <h2>Coursework</h2>
+      <h2>📚Coursework</h2>
       <ul>
         <li>Intro to Programming</li>
         <li>Discrete Structures</li>
@@ -79,34 +90,93 @@
         <li>Computer Architecture</li>
         <li>Software Development</li>
         <li>Algorithms and Analysis</li>
-        <li><em>Currently enrolled:</em> Intro to Machine Learning and Artificial Intelligence</li>
+        <li><em>Currently enrolled in:</em> The Global Career Accelerator: Web Dev Track
+          <ul>
+            <li>In this program, I am sharpening my full-stack development skills and preparing for a career in tech through real-world projects, mentorship, and career coaching.</li>
+          </ul>
+        </li>
+        <li><em>Soon to be enrolled in:</em> Intro to Machine Learning and Artificial Intelligence</li>
       </ul>
     </div>
   </section>
 
-  <!-- Projects Section: Info from your resume -->
+  <!-- Projects Section -->
   <section id="projects" class="projects">
     <div class="section-content">
-      <h2>Projects</h2>
-      <ul>
-        <li>
-          <strong>Better Office Hour Tickets with OpenAI</strong>
-          <!-- Add GitHub project link for students to see -->
-          <a href="https://github.com/bjcorter/unc-csxl-ai-office-hours/blob/stage/docs/implementation_documentation.md" target="_blank">
-            - Click here to see a more indepth look at the project
-          </a>
-          <br>
-          Team Project for UNC CSXL Website | Spring 2025
-          <ul>
-            <li>Developed a multi-featured AI ticket enhancement system using OpenAI, FastAPI, Angular, JavaScript, Python, and CSS.</li>
-            <li><strong>Ticket Review:</strong> Built a validator that reviews and rejects low-effort office hour tickets, giving feedback via OpenAI. Rejections are logged and analyzed in a custom database.</li>
-            <li><strong>AI Suggestions for TAs:</strong> Created contextual AI suggestions for TAs, offering helpful first steps for troubleshooting.</li>
-            <li><strong>Flag System:</strong> Built a frequency-based AI flagging system to highlight common student issues using prior ticket comparison and NLP prompts.</li>
-            <li>Worked on OpenAI service integration, model/entity design, backend services, frontend HTML/TypeScript logic, UI components, and database logic in PostgreSQL.</li>
-          </ul>
-        </li>
-      </ul>
+      <h2>💻Projects</h2>
+      <!-- Each project is inside its own card for better appearance -->
+      <div class="project-card">
+        <!-- Project tags for visual interest -->
+        <div class="project-tags">
+          <span class="tag">AI</span>
+          <span class="tag">Web</span>
+          <span class="tag">Team</span>
+        </div>
+        <ul>
+          <li>
+            <strong>Better Office Hour Tickets with OpenAI</strong>
+            <a href="https://github.com/bjcorter/unc-csxl-ai-office-hours/blob/stage/docs/implementation_documentation.md" target="_blank">
+              - Click here for this project's documentation
+            </a>
+            <br>
+            Team Project for UNC CSXL Website | Spring 2025
+            <ul>
+              <li>Developed a multi-featured AI ticket enhancement system using OpenAI, FastAPI, Angular, JavaScript, Python, and CSS.</li>
+              <li><strong>Ticket Review:</strong> Built a validator that reviews and rejects low-effort office hour tickets, giving feedback via OpenAI. Rejections are logged and analyzed in a custom database.</li>
+              <li><strong>AI Suggestions for TAs:</strong> Created contextual AI suggestions for TAs, offering helpful first steps for troubleshooting.</li>
+              <li><strong>Flag System:</strong> Built a frequency-based AI flagging system to highlight common student issues using prior ticket comparison and NLP prompts.</li>
+              <li>Worked on OpenAI service integration, model/entity design, backend services, frontend HTML/TypeScript logic, UI components, and database logic in PostgreSQL.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="project-card">
+        <!-- Project tags for visual interest -->
+        <div class="project-tags">
+          <span class="tag">Web</span>
+          <span class="tag">Design</span>
+          <span class="tag">Sustainability</span>
+        </div>
+        <ul>
+          <li>
+            <strong> Intel Sustainabilty Journey Website</strong>
+            <a href="https://bjcorter.github.io/02-prj-intel-sustainability/" target="_blank">
+              - Click here to see this project live
+            </a>
+            <ul>
+              <li>Developed an interactive timeline website highlighting Intel’s major sustainability and innovation milestones over the past 70 years.</li>
+              <li>Utilized HTML, CSS, and JavaScript to build a responsive, visually engaging and smooth user experience.</li>
+              <li>Synthesized historical and environmental data into accessible, informative content.</li>
+              <li>Emphasized clarity and design to effectively communicate Intel’s long-term sustainability goals.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
   </section>
+  <!-- Friendly footer at the bottom -->
+  <footer class="site-footer">
+    <!-- Footer message for a personal touch -->
+    <p>Thanks for checking out my page! Be sure to reach out!</p>
+  </footer>
+  <!-- Smooth scroll script for the arrow -->
+  <script>
+    // This script makes the page scroll smoothly to the About Me section when the arrow is clicked
+    document.addEventListener('DOMContentLoaded', function() {
+      // Find the arrow link
+      var arrow = document.querySelector('.scroll-down-arrow');
+      if (arrow) {
+        arrow.addEventListener('click', function(event) {
+          event.preventDefault(); // Stop the default jump
+          // Find the About Me section
+          var aboutSection = document.getElementById('bio');
+          if (aboutSection) {
+            // Scroll to the About Me section smoothly
+            aboutSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>

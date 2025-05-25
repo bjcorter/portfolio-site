@@ -1,312 +1,372 @@
-/* Add you CSS here */
-
-/* These lines let us animate custom CSS variables for the background */
-
-/*background by Temani Afif https://prismic.io/blog/css-background-effects*/
-
-@property --a {
-  syntax: '<angle>';
-  inherits: true;
-  initial-value: 0deg;
-}
-@property --p {
-  syntax: '<percentage>';
-  inherits: true;
-  initial-value: 0%;
-}
-@property --c1 {
-  syntax: '<color>';
-  inherits: true;
-  initial-value: #000;
-}
-@property --c2 {
-  syntax: '<color>';
-  inherits: true;
-  initial-value: #000;
+/* Main color scheme: cream background and light earthy tones */
+:root {
+  --primary-bg: #f9f6f2;      /* Cream/off-white background */
+  --primary-text: #4e4637;    /* Earthy dark brown for text */
+  --accent: #bfa980;          /* Warm sand accent */
+  --accent-light: #e9e3d0;    /* Light sand */
+  --card-bg: #fffdf7;         /* Slightly lighter cream for cards (if needed) */
+  --border: #e5dcc3;          /* Light tan border */
+  --navbar-bg: #a89f91;       /* Muted taupe for navbar */
+  --navbar-link: #fffdf7;     /* Creamy white for navbar links */
+  --navbar-link-hover: #bfa980; /* Sand accent for navbar link hover */
 }
 
-/* This sets the animated background for the whole page */
-html {
-  --s: 80px; /* Size of the pattern squares */
-  --_g: #0000, var(--c1) 2deg calc(var(--a) - 2deg), #0000 var(--a);
-  background:
-    conic-gradient(from calc(-45deg  - var(--a)/2) at top    var(--p) left  var(--p), var(--_g)),
-    conic-gradient(from calc(-45deg  - var(--a)/2) at top    var(--p) left  var(--p), var(--_g)),
-    conic-gradient(from calc( 45deg  - var(--a)/2) at top    var(--p) right var(--p), var(--_g)),
-    conic-gradient(from calc( 45deg  - var(--a)/2) at top    var(--p) right var(--p), var(--_g)),
-    conic-gradient(from calc(-135deg - var(--a)/2) at bottom var(--p) left  var(--p), var(--_g)),
-    conic-gradient(from calc(-135deg - var(--a)/2) at bottom var(--p) left  var(--p), var(--_g)),
-    conic-gradient(from calc( 135deg - var(--a)/2) at bottom var(--p) right var(--p), var(--_g)),
-    conic-gradient(from calc( 135deg - var(--a)/2) at bottom var(--p) right var(--p), var(--_g)),
-    var(--c2);
-  background-size: calc(2*var(--s)) calc(2*var(--s));
-  animation: m 2s infinite alternate linear;
-}
-
-/* This animates the background colors and angles */
-@keyframes m {
-  /* Animation steps for background colors and angles */
-  0%, 15% {
-    --a: 135deg;
-    --p: 20%;
-    --c1: #7BAFD4;   /* Carolina Blue */
-    --c2: #13294B;   /* UNC Navy */
-    background-position: 0 0, var(--s) var(--s);
-  }
-  45%, 50% {
-    --a: 90deg;
-    --p: 25%;
-    --c1: #7BAFD4;   /* Carolina Blue */
-    --c2: #13294B;   /* UNC Navy */
-    background-position: 0 0, var(--s) var(--s);
-  }
-  50.01%, 55% {
-    --a: 90deg;
-    --p: 25%;
-    --c2: #7BAFD4;   /* Carolina Blue */
-    --c1: #13294B;   /* UNC Navy */
-    background-position: var(--s) 0, 0 var(--s);
-  }
-  85%, 100% {
-    --a: 135deg;
-    --p: 20%;
-    --c2: #7BAFD4;   /* Carolina Blue */
-    --c1: #13294B;   /* UNC Navy */
-    background-position: var(--s) 0, 0 var(--s);
-  }
-}
-
-/* Set a clean, modern font for the whole page */
-body {
-  font-family: Arial, sans-serif;
-  color: #13294B; /* UNC Navy for text */
+/* Set a clean, modern font and background for the whole page */
+html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
-  font-size: 1.15em; /* Make all text a bit larger */
-  line-height: 1.6;  /* Improve readability */
+  background: var(--primary-bg);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: var(--primary-text);
+  font-size: 1.1em;
+  line-height: 1.7;
 }
 
-/* Make only the hero section take up the full width of the page */
-.hero {
-  /* Set the banner image as the background */
-  background-image: url('img/banner.jpg'); /* Make sure the file is named banner.jpg */
-  background-size: cover;    /* Cover the whole area */
-  background-position: calc(50% - 30px) bottom; /* Move image 30px to the left */
-  position: relative;        /* Needed for overlay positioning */
-  background-color: rgba(123, 175, 212); /* Fallback color */
-  padding: 0;
+/* Style for all links on the page */
+a {
+  color: var(--accent); /* Use the warm sand accent color for links */
+  text-decoration: underline; /* Underline links for clarity */
+  transition: color 0.2s; /* Smooth color change when hovering */
+}
+
+/* When you hover over a link, change its color */
+a:hover, a:focus {
+  color: var(--primary-text); /* Change to earthy dark brown on hover */
+  text-decoration: none; /* Remove underline on hover for a simple effect */
+}
+
+/* Navbar styles */
+.navbar {
+  background: var(--navbar-bg);
+  padding: 0.8em 0;
   text-align: center;
-  border-radius: 0;
-  box-shadow: 0 2px 12px rgba(19, 41, 75, 0.18); /* UNC Navy shadow */
-  width: 100%; /* Full width */
-  margin: 0 0 30px 0; /* No space above, space below */
-  min-height: 400px; /* Increased height to show more of the image */
+  box-shadow: 0 2px 8px rgba(168,159,145,0.07);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar a {
+  color: var(--navbar-link);
+  text-decoration: none;
+  margin: 0 1.2em;
+  font-weight: 500;
+  font-size: 1.05em;
+  letter-spacing: 0.03em;
+  transition: color 0.2s;
+  padding: 0.3em 0;
+  border-bottom: 2px solid transparent;
+}
+
+.navbar a:hover, .navbar a:focus {
+  color: var(--navbar-link-hover);
+  border-bottom: 2px solid var(--accent);
+  outline: none;
+}
+
+/* Hero section with a smooth animated earthy gradient background */
+.hero {
+  /* Animated gradient background with earthy tones */
+  background: linear-gradient(120deg, #e9e3d0, #bfa980, #f9f6f2);
+  background-size: 200% 200%;
+  animation: hero-gradient 10s ease-in-out infinite;
+  min-height: 100vh; /* Fill the entire visible screen */
+  height: 100vh;     /* Ensure it always fills the screen */
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  box-shadow: 0 2px 12px rgba(168,159,145,0.07);
+  
+  padding: 0;
 }
 
-/* Overlay to make text readable on the hero image */
+/* Keyframes for the animated gradient */
+@keyframes hero-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 .hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(19, 41, 75, 0.55); /* UNC Navy, semi-transparent */
-  z-index: 1; /* Place overlay above background but below text */
-  pointer-events: none; /* Let clicks pass through */
+  /* No overlay needed for new style, but keep for structure */
+  display: none;
 }
 
-/* This container centers the hero text */
 .hero-content {
   position: relative;
-  z-index: 2; /* Above the overlay */
-  max-width: 1008px; /* Increased width for more space */
-  margin: 0 auto;
-  padding: 40px;
+  z-index: 2;
   text-align: center;
+  padding: 2.5em 1em;
 }
 
-/* Add a box behind the main heading in the hero section */
 .hero-content h1 {
-  background: #7BAFD4; /* UNC light blue */
-  padding: 20px 40px;
-  border-radius: 10px;
-  display: inline-block;
-  color: #13294B; /* UNC Navy for the text */
-  margin-bottom: 10px;
-  box-shadow: 0 2px 8px rgba(19, 41, 75, 0.18);
-  /* Use background opacity instead of opacity for the box */
-  /* Make the background color semi-transparent but keep text solid */
-  background: rgba(123, 175, 212, 0.7); /* UNC light blue, mostly opaque */
+  font-size: 2.8em;
+  font-weight: 700;
+  /* Use a dark earthy color for readability on the animated background */
+  color: #4e4637;
+  margin: 0 0 0.3em 0;
+  letter-spacing: 0.02em;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
 }
 
-/* Make hero text a light UNC blue for readability */
-.hero-content h1,
 .hero-content p {
-  color: #7BAFD4; /* Light UNC blue */
+  color: #7c715a; /* Muted earthy brown for subtitle */
+  font-size: 1.25em;
+  margin-top: 0.5em;
 }
 
-/* Make the other sections look like cards in the center */
-section:not(.hero) {
-  max-width: 1008px; /* Increased width for more space */
-  margin: 30px auto; /* Center the card horizontally */
-  padding: 20px; /* Space inside the card */
-  background-color: #7BAFD4; /* Carolina Blue, solid */
-  border-radius: 8px; /* Rounded corners for card effect */
-  box-shadow: 0 2px 12px rgba(19, 41, 75, 0.18); /* UNC Navy shadow */
-  width: auto; /* Do not stretch full width */
+/* Style for the photo in the hero section */
+.hero-photo {
+  display: block;
+  margin: 18px auto 0 auto; /* Center the image and add space above */
+  width: 240px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(168,159,145,0.10), 0 0 24px 2px #e9e3d0;
+  border: 3px solid var(--accent-light);
+  background: #f5f2ea;
 }
 
-/* Make each section take up the full width of the page */
+/* Flare: animated underline below the name in the hero section */
+.flare-underline {
+  width: 80px;
+  height: 4px;
+  margin: 0.5em auto 1em auto;
+  background: linear-gradient(90deg, #bfa980 0%, #e9e3d0 100%);
+  border-radius: 2px;
+  animation: underline-glow 2.5s ease-in-out infinite alternate;
+}
+
+/* Animation for the underline glow effect */
+@keyframes underline-glow {
+  0% {
+    box-shadow: 0 0 0px #bfa980;
+    background-position: 0% 50%;
+  }
+  100% {
+    box-shadow: 0 0 16px 4px #e9e3d0;
+    background-position: 100% 50%;
+  }
+}
+
+/* Waving hand emoji animation for hero section */
+.wave-emoji {
+  display: inline-block;
+  animation: wave-hand 2s infinite;
+  transform-origin: 70% 70%;
+}
+
+/* Keyframes for waving hand */
+@keyframes wave-hand {
+  0% { transform: rotate(0deg);}
+  10% { transform: rotate(18deg);}
+  20% { transform: rotate(-10deg);}
+  30% { transform: rotate(18deg);}
+  40% { transform: rotate(-4deg);}
+  50% { transform: rotate(12deg);}
+  60% { transform: rotate(0deg);}
+  100% { transform: rotate(0deg);}
+}
+
+/* Animated scroll-down arrow below hero section */
+.scroll-down-arrow {
+  width: 48px;  /* Make the arrow larger */
+  height: 48px;
+  display: block;
+  border-left: 6px solid #bfa980;
+  border-bottom: 6px solid #bfa980;
+  transform: rotate(-45deg); /* Always points down */
+  opacity: 0.7;
+  cursor: pointer; /* Show pointer to indicate it's clickable */
+  transition: opacity 0.2s;
+  background: transparent;
+  margin: 0 auto;
+}
+
+.arrow-bounce-container {
+  /* This container will move up and down */
+  animation: arrow-bounce 1.5s infinite;
+  position: absolute;
+  left: 50%;
+  top: 78%;
+  margin-left: -24px; /* Half of arrow width to center */
+}
+
+.scroll-down-arrow:hover,
+.scroll-down-arrow:focus {
+  opacity: 1; /* Make arrow more visible on hover/focus */
+}
+
+/* Keyframes for arrow bounce: move up and down only */
+@keyframes arrow-bounce {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(24px); }
+  100% { transform: translateY(0); }
+}
+
+/* Section styles: give each section a different, modern earthy color band */
 section {
-  width: 100%; /* Section stretches across the page */
-  padding: 0;  /* Remove inner padding from section */
-  background-color: #7BAFD4; /* Carolina Blue, solid */
-  border-radius: 0; /* Remove rounded corners for full-width look */
-  box-shadow: 0 2px 12px rgba(19, 41, 75, 0.18); /* UNC Navy shadow */
-  margin: 30px 0; /* Space above and below each section */
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-shadow: none;
 }
 
-/* This container centers the text and limits its width */
+/* About Me section: match Projects section background */
+#bio {
+  background: #ece9e1;
+}
+
+/* Coursework section: pale tan */
+#coursework {
+  background: #f7f4ec;
+}
+
+/* Projects section: light muted olive */
+#projects {
+  background: #ece9e1;
+}
+
+/* Remove margin from section-content to prevent gaps */
 .section-content {
-  max-width: 1008px; /* Increased width for more space */
-  margin: 0 auto;   /* Center the content horizontally */
-  padding: 20px;    /* Add space inside the content */
+  max-width: 900px;
+  margin: 0 auto; /* Only center horizontally, no vertical margin */
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 2.2em 2em 2em 2em;
+  border: none;
 }
 
-/* Style the main heading in the hero section */
-.hero h1 {
-  font-size: 2em;
-  margin-bottom: 10px;
-  color: #4B9CD3; /* Carolina Blue (darker) */
-}
-
-/* Make section headings larger for readability */
-section h2, section h3 {
-  font-size: 1.35em;
-}
-
-/* Make section headings much larger for beginners to see clearly */
+/* Section headings */
 section h2 {
-  color: #13294B; /* UNC Navy */
+  font-size: 2em;
+  color: #7c715a; /* Muted earthy brown */
   margin-top: 0;
-  font-size: 2.3em; /* Significantly larger */
+  margin-bottom: 0.7em;
+  font-weight: 600;
+  letter-spacing: 0.01em;
 }
 
-/* Style lists for coursework and projects */
+section h3 {
+  font-size: 1.2em;
+  color: #4e4637;
+  margin-bottom: 0.5em;
+  margin-top: 1.2em;
+  font-weight: 500;
+}
+
+/* List styles */
 ul {
-  padding-left: 20px;
+  padding-left: 1.3em;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
 }
 
 li {
-  margin-bottom: 8px;
-  font-size: 1.08em;
-}
-
-/* Style for the navigation bar at the top */
-.navbar {
-  background-color: #13294B; /* UNC Navy */
-  padding: 18px 0; /* Increased padding to make navbar taller */
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(19, 41, 75, 0.10); /* UNC Navy shadow */
-  position: relative;
-  z-index: 1;
-}
-
-/* Style the links inside the navbar */
-.navbar a {
-  color: #fff; /* White text for navbar links */
-  text-decoration: none;
-  margin: 0 15px;
-  font-weight: bold;
+  margin-bottom: 0.5em;
   font-size: 1em;
-  transition: color 0.2s;
 }
 
-/* Add a simple hover effect */
-.navbar a:hover {
-  color: rgba(123, 175, 212, 0.98); /* UNC Navy on hover */
-  text-decoration: underline;
-}
-
-/* Optional: Slightly lighter background for the hero section */
-.hero {
-  background-color: rgba(123, 175, 212); /* Carolina Blue, almost solid */
-  padding: 0; /* Remove padding from hero section */
-  text-align: center;
-  border-radius: 0; /* Remove rounded corners for full-width look */
-  box-shadow: 0 2px 12px rgba(19, 41, 75, 0.18); /* UNC Navy shadow */
-  /* Removed blur effect */
-}
-
-/* This container centers the hero text */
-.hero-content {
-  max-width: 1008px; /* Increased width for more space */
-  margin: 0 auto;
-  padding: 40px;
-  text-align: center;
-}
-
-/* Optional: Make links in sections stand out */
-section a {
-  color: #4B9CD3; /* Carolina Blue (darker) */
-  text-decoration: underline;
-}
-
-/* Make links in the About Me section (bio) UNC Navy */
-.bio a {
-  color: #13294B; /* UNC Navy */
-  text-decoration: underline;
-}
-
-/* Container for About Me text and image side by side */
+/* About section layout */
 .about-container {
-  overflow: auto; /* Clear floats after the container */
-  position: relative; /* For future positioning if needed */
   display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
   align-items: flex-start;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-/* Text stays on the left, no extra margin needed now */
+/* Only keep about-text, remove about-images styles */
 .about-text {
-  margin-right: 0; /* Remove right margin so text uses full width */
-  flex: 1;
+  flex: 1 1 100%;
+  min-width: 220px;
 }
 
-/* The main image style (top image) */
-.about-img {
-  /* Remove float so images stack vertically */
-  display: block;
-  width: 270px;
-  height: 270px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-left: 24px;
-  margin-bottom: 12px;
-  margin-top: 20px;
-  margin-right: 20px;
-  box-shadow: 0 2px 8px rgba(19, 41, 75, 0.12);
-  border: 4px solid #13294B; /* UNC Navy border */
-  /* Remove float and clear for vertical stacking */
+/* Remove about-images and related styles */
+.about-images,
+.about-img,
+.about-img-below,
+.about-images:empty {
+  display: none !important;
 }
 
-/* The second image below the first one */
-.about-img-below {
-  margin-top: 0; /* No extra space above */
+/* Remove double border on hero section */
+.hero .section-content {
+  border: none;
+  box-shadow: none;
+  background: transparent;
 }
 
-/* Put both images in a column on the right */
-.about-images {
+/* Project card: gives each project its own card look */
+.project-card {
+  /* Adds a white background and a soft border */
+  background: #fffdf7;
+  border: 1px solid #e5dcc3;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(168,159,145,0.07);
+  padding: 1.2em 1.5em;
+  margin-bottom: 1.5em;
+}
+
+/* Fun Fact box in About Me section */
+.fun-fact {
+  background: #f7f4ec;
+  border-left: 5px solid #bfa980;
+  padding: 0.8em 1em;
+  margin-top: 1.2em;
+  border-radius: 7px;
+  font-size: 1.08em;
+  color: #4e4637;
+  box-shadow: 0 2px 8px rgba(191,169,128,0.06);
+}
+
+/* Project tags: colorful badges for each project */
+.project-tags {
+  margin-bottom: 0.7em;
   display: flex;
-  flex-direction: column;
-  align-items: flex-end; /* Align images to the right edge */
+  gap: 0.5em;
 }
 
-/* Make the special project link UNC Navy */
-.projects a {
-  color: #13294B; /* UNC Navy */
-  text-decoration: underline;
+.tag {
+  display: inline-block;
+  padding: 0.22em 0.8em;
+  border-radius: 12px;
+  font-size: 0.95em;
+  font-weight: 500;
+  color: #fff;
+  background: #bfa980; /* All tags use this warm sand color */
+  letter-spacing: 0.02em;
+  box-shadow: 0 1px 4px rgba(168,159,145,0.07);
 }
+
+/* Footer styling for a friendly look */
+.site-footer {
+  background: #ece9e1;
+  text-align: center;
+  padding: 1.2em 0 1.2em 0;
+  font-size: 1.08em;
+  color: #7c715a;
+  margin-top: 2em;
+  border-top: 1px solid #e5dcc3;
+  letter-spacing: 0.01em;
+}
+
+
+
 
